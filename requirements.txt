@@ -1,0 +1,8 @@
+anytree==2.4.3
+numpy
+pandas==0.21.0
+pika
+six
+requests
+tqdm
+simplejson
