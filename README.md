@@ -1,5 +1,5 @@
 # Learning to Search in Long Documents Using Document Structure
-This repo contains the code used in our paper [https://arxiv.org/abs/XXXX.XXXXX](https://arxiv.org/abs/XXXX.XXXXX).
+This repo contains the code used in our paper [https://arxiv.org/abs/1806.03529](https://arxiv.org/abs/1806.03529).
 The code includes a framework for training and evaluation of the DocQN and DQN models on TriviaQA-NoP, our version of [TriviaQA](http://nlp.cs.washington.edu/triviaqa/) where documents represented as tree objects.
 The data is available for download [here](https://www.cs.tau.ac.il/~taunlp/triviaqa-nop/triviaqa-nop.gz).
 
