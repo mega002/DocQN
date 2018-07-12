@@ -21,6 +21,7 @@ DATA_BASE_URL = 'https://www.cs.tau.ac.il/~taunlp/triviaqa-nop/{}'
 DATA_BASE_DIR = '../data/{}'
 FNAMES = ['triviaqa-nop.gz', 'triviaqa-nop-preprocessed.gz']
 FDESCS = ['TriviaQA-NoP dataset', 'TriviaQA-NoP preprocessed data']
+PREDS = 'all_qa_para_preds.gz'
 
 
 ###################################
@@ -46,15 +47,22 @@ def extract_data():
             print('Failure executing "{}"'.format(tar_cmd))
             sys.exit(1)
 
+    assert os.path.exists(DATA_BASE_DIR.format(PREDS))
+    print('Extracting RaSoR predictions')
+    tar_cmd = 'tar -xzf {} -C {}'.format(DATA_BASE_DIR.format(PREDS), DATA_BASE_DIR.format(''))
+    if os.system(tar_cmd) != 0:
+        print('Failure executing "{}"'.format(tar_cmd))
+        sys.exit(1)
+
 
 def delete_gz_files():
-    for i, fname in enumerate(FNAMES):
+    for i, fname in enumerate(FNAMES + [PREDS]):
         if not os.path.isfile(DATA_BASE_DIR.format(fname)):
             continue
         print('Deleting {}'.format(DATA_BASE_DIR.format(fname)))
-        wget_cmd = 'rm {}'.format(DATA_BASE_DIR.format(fname))
-        if os.system(wget_cmd) != 0:
-            print('Failure executing "{}"'.format(wget_cmd))
+        del_cmd = 'rm {}'.format(DATA_BASE_DIR.format(fname))
+        if os.system(del_cmd) != 0:
+            print('Failure executing "{}"'.format(del_cmd))
             continue
 
 
