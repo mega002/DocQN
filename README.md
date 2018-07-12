@@ -1,9 +1,9 @@
 # Learning to Search in Long Documents Using Document Structure
-This repo contains the code used in our paper [https://arxiv.org/abs/XXXX.XXXXX](https://arxiv.org/abs/XXXX.XXXXX).
+This repo contains the code used in our paper [https://arxiv.org/abs/1806.03529](https://arxiv.org/abs/1806.03529).
 The code includes a framework for training and evaluation of the DocQN and DQN models on TriviaQA-NoP, our version of [TriviaQA](http://nlp.cs.washington.edu/triviaqa/) where documents represented as tree objects.
 The data is available for download [here](https://www.cs.tau.ac.il/~taunlp/triviaqa-nop/triviaqa-nop.gz).
 
-There are two code version included, of the two baselines in the paper - full and coupled.
+There are two code versions included, of the two baselines in the paper - full and coupled.
 The full models leverage RaSoR predictions during navigation, while the coupled models do not.
 All files ending with `_c.py` belong to the coupled version.
 
@@ -12,7 +12,7 @@ All files ending with `_c.py` belong to the coupled version.
 The code requires python >= 3.5, tensorflow 1.3, and several other supporting libraries.
 Tensorflow should be installed separately following the docs. To install the other dependencies use:
 ```bash
-$ pip install -r requirements.txt`
+$ pip install -r requirements.txt
 ```
 Once the environment is set, you can download and extract the data by running the setup script:
 ```bash
@@ -20,7 +20,7 @@ $ python setup.py
 ```
 
 Loading the data into memory requires at least 34GB RAM, where additional amount that depends on the replay memory size is required for training. To allow memory-efficient execution, which supports multiple executions in parallel, we run an RPC server that holds a single copy of the data in memory.
-Running the RPC server is a requirement for the full models, and an option for the coupled models. To use it, [RabbitMQ](https://www.rabbitmq.com/install-debian.html) needs to be installed.
+Running the RPC server is a requirement for the full models, and an option for the coupled models. To use it, [RabbitMQ](https://www.rabbitmq.com/install-debian.html) must be installed.
 
 The code can run both on GPU and CPU devices.
 
